@@ -1,0 +1,15 @@
+pipeline {
+  agent any
+  stages {
+    stage('verify tools') {
+      steps {
+        sh '''
+          node -v
+          npm -v
+          pulumi version
+          env | sort
+        '''
+      }
+    }
+  }
+}
